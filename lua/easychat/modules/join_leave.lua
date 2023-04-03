@@ -182,12 +182,12 @@ if CLIENT then
 
 		local formatted_id = (" (%s) "):format(network_id)
 		if is_join then
-			chat.AddText(green_color, " ● ", ply_col, name, gray_color, formatted_id, white_color, "has ", green_color, "spawned")
+			-- chat.AddText(green_color, " ● ", ply_col, name, gray_color, formatted_id, white_color, "has ", green_color, "spawned")
 
 			if last_seen_diff == -1 then
 				chat.AddText(black_color, " ▸ ", white_color, "Joined for the ", cyan_color, "first time", white_color, "!")
 			else
-				chat.AddText(black_color, " ▸ ", white_color, "Last seen ", cyan_color, seen_date, white_color, " at ", teal_color, os.date("%H:%M", last_seen_time), gray_color, formatted_diff)
+				-- chat.AddText(black_color, " ▸ ", white_color, "Last seen ", cyan_color, seen_date, white_color, " at ", teal_color, os.date("%H:%M", last_seen_time), gray_color, formatted_diff)
 			end
 
 			-- let me be special
@@ -198,7 +198,7 @@ if CLIENT then
 			if reason == "Gave up connecting" then
 				chat.AddText(red_color, " ● ", ply_col, name, gray_color, formatted_id, red_color, "gave up", white_color, " connecting")
 			else
-				chat.AddText(red_color, " ● ", ply_col, name, gray_color, formatted_id, white_color, "has ", red_color, "left", white_color, " the server", red_color, " (" .. reason .. ")")
+				-- chat.AddText(red_color, " ● ", ply_col, name, gray_color, formatted_id, white_color, "has ", red_color, "left", white_color, " the server", red_color, " (" .. reason .. ")")
 			end
 		end
 	end)
