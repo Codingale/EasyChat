@@ -1,8 +1,8 @@
 local TAG = "EasyChatModuleVoiceHUD"
 local EC_VOICE_HUD = CreateClientConVar("easychat_voice_hud", "1", true, false, "Should we use EasyChat's voice hud")
-local EC_VOICE_RINGS = CreateClientConVar("easychat_voice_rings", "1", true, false, "Should we draw voice rings under the player")
+local EC_VOICE_RINGS = CreateClientConVar("easychat_voice_rings_ph", "0", true, false, "Should we draw voice rings under the player")
 EasyChat.RegisterConvar(EC_VOICE_HUD, "Use EasyChat's voice HUD")
-EasyChat.RegisterConvar(EC_VOICE_RINGS, "Draw voice rings under players")
+EasyChat.RegisterConvar(EC_VOICE_RINGS, "Draw voice rings under players  (PropHunt disabled by default)")
 
 local ply_voice_panels = {}
 cvars.RemoveChangeCallback(EC_VOICE_HUD:GetName(), TAG)
@@ -233,7 +233,9 @@ hook.Add("PostDrawTranslucentRenderables", TAG, function()
 	if not EC_VOICE_RINGS:GetBool() then return end
 
 	for _, ply in ipairs(player.GetAll()) do
-		draw_voice_ring(ply)
+        if ply:Team() == TEAM_HUNTERS then
+		    draw_voice_ring(ply) -- Only hunters
+        end
 	end
 end)
 
