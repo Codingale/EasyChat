@@ -57,10 +57,6 @@ function PANEL:Init()
 					height: 95%;
 				}
 
-				.blur {
-					filter: blur(20px);
-				}
-
 				img {
 
 					overflow: hidden;
