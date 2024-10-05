@@ -102,14 +102,9 @@ local function safe_hook_run(hook_name, ...)
 end
 EasyChat.SafeHookRun = safe_hook_run
 
-function EasyChat.IsStringEmpty(str, is_nick)
+function EasyChat.IsStringEmpty(str, is_nick) -- TODO: remove passed args
 	local sanitized_str = EasyChat.ExtendedStringTrim(str, true)
 	if #sanitized_str == 0 then return true end
-
-	-- if its a nick dont allow under 2 chars
-	if is_nick and utf8.len(sanitized_str) < 2 then
-		return true
-	end
 
 	return false
 end
